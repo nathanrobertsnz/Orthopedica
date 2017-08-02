@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+
+
+<h2>Contact Us</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            @model MVCEmail.Models.EmailFormModel
+            @{
+                ViewBag.Title = "Contact";
+            }
+            <h2>@ViewBag.Title.</h2>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <h4>Send your comments.</h4>
+                <hr />
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FromName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FromEmail)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FromPhoneNumber, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FromPhoneNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FromPhoneNumber)
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Message)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-default" value="Send" />
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        <div class="col-md-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3190.232223987378!2d174.67595581529295!3d-36.908711679926355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d41456b7f6ac3%3A0x780d6203910e7cdc!2s3131+Great+North+Rd%2C+New+Lynn%2C+Auckland+0600!5e0!3m2!1sen!2snz!4v1499134246956" width="450" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+    </div>
+
+
+
+</div>
